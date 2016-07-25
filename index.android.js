@@ -22,7 +22,7 @@ class ReactNotes extends Component {
     switch(route.name) {
       case 'home':
         return (
-          <HomeScreen />
+          <HomeScreen navigator={navigator} />
           );
       case 'createNote':
         return (
