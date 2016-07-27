@@ -31,7 +31,7 @@ class ReactNotes extends Component {
           );
       case 'createNote':
         return (
-          <NoteScreen />
+          <NoteScreen note={route.note} os='ios' />
         );
     }
   }

@@ -7,20 +7,25 @@ import {
 
 
 import SimpleButton from './SimpleButton';
+import NoteList from './NoteList';
 
 export default class HomeScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.noNotesText}>You haven't created any notes!</Text>
-				<SimpleButton
-					style={styles.simpleButton}
-					textStyle={styles.simpleButtonText}
-					onPress={() => {
-						this.props.navigator.push({name: 'createNote'});
-					}}
-					customText="Create Note"
-				/>
+
+				<View style={styles.noteList}><NoteList navigator={this.props.navigator} /></View>
+				<View style={styles.centralNavigation}>
+					<Text style={styles.noNotesText}>You haven't created any notes!</Text>
+					<SimpleButton
+						style={styles.simpleButton}
+						textStyle={styles.simpleButtonText}
+						onPress={() => {
+							this.props.navigator.push({name: 'createNote'});
+						}}
+						customText="Create Note"
+					/>
+				</View>
 			</View>
 		);
 	}
@@ -31,6 +36,17 @@ var styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
+		marginTop: 60,
+		alignItems: 'stretch',
+	},
+	centralNavigation: {
+		flex: 1,
+		//backgroundColor: 'green',
+		alignItems: 'center',
+	},
+	noteList: {
+		flex: 1,
+		//backgroundColor: 'gray',
 	},
 	noNotesText: {
 		color: '#48209A',
@@ -55,5 +71,6 @@ var styles = StyleSheet.create({
 		color: 'white',
 		fontWeight: 'bold',
 		fontSize: 16,
+		textAlign: 'center',
 	}
 });

@@ -26,7 +26,7 @@ class ReactNotes extends Component {
           );
       case 'createNote':
         return (
-          <NoteScreen />
+          <NoteScreen os='android' />
         );
     }
   }
